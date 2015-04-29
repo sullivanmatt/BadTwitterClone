@@ -6,6 +6,7 @@ ob_start(); // Initiate the output buffer, cookies should be set before renderin
 <head>
 <link rel="SHORTCUT ICON" href="/BadTwitterClone/favicon.ico">
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>BadTwitterClone - Login</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 <center>
@@ -44,14 +45,11 @@ while($row = mysql_fetch_array($result))
 //if username exits and password is correct set cookie, else inform user
 if($login)
 {
-  // set an active cookie for this username
-  setcookie("Username", $username, time()+3600);
+   $_SESSION['user'] = $username;
   echo "Welcome $username. You are now logged in.";
 }
 else
 {
-  // set the cookie to be expired
-  setcookie("Username", $username, time()-3600);
   echo 'Login failed.  <a href="/BadTwitterClone/login.html">Try again</a>.';
 }
 

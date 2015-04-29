@@ -21,7 +21,6 @@ if (isset($_SESSION["user"])){
   echo '<li><h3><a href="/BadTwitterClone/launch.php">I AM AN ADMIN, LET ME CLAIM MY POWERS!!!</a></h3></li>';
   echo '<li><h3><a href="/BadTwitterClone/user_tweets.php?username='.$_SESSION['user'].'">Read My Tweets</a></h3></li>';
   echo '<li><h3><a href="/BadTwitterClone/post.php">Post Tweet</a></h3></li>';
-  echo '<li><h3><a href="/BadTwitterClone/users.php">User List</a></h3></li>';
   echo '<li><h3><a href="/BadTwitterClone/logout.php">Logout</a></h3></li>';
   echo '</ul>';
 }
@@ -30,8 +29,8 @@ else {
   echo '<h2><i>What do you want to do?</i></h2>';
   echo '<ul>';
   echo '<li><h3><a href="/BadTwitterClone/register.html">Register Account</a></h3></li>';
-  echo '<li><h3><a href="/BadTwitterClone/users.php">User List</a></h3></li>';
   echo '<li><h3><a href="/BadTwitterClone/login.html">Login</a></h3></li>';
+  echo '<li><h3><a href="/BadTwitterClone/login_slow.html">Login (Slow)</a></h3></li>';
   echo '</ul>';
 }
 ?>

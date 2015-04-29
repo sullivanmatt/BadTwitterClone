@@ -1,8 +1,12 @@
+<?php
+include 'config.php';
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <link rel="SHORTCUT ICON" href="/BadTwitterClone/favicon.ico">
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>BadTwitterClone - Post</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 <center>
@@ -24,10 +28,14 @@ if (document.registration.message.value.length==0){
 alert("Please enter a message to post.");
 return false;
 }
-if (document.registration.message.value.length>140){
-alert("Your message cannot be longer than 140 characters.");
+if (document.registration.message.value.length>1024){
+alert("Your message cannot be longer than 1024 characters.");
 return false;
 }
+//if (document.registration.message.value.indexOf("<script>") > -1){
+//alert("You may not use JavaScript in your tweets.");
+//return false;
+//}
 return true;
 }
 </script>
@@ -35,7 +43,7 @@ return true;
 <br />
 
 <?php
-if (isset($_COOKIE["Username"])){
+if (isset($_SESSION["user"])){
   echo '<form name=registration action="post_results.php" method="post" onSubmit="return check()"><span style="font-weight: bold;">';
   echo '<span style="font-weight: bold;">Message:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />';
   echo '<textarea cols="50" rows="5" name="message"></textarea>';

@@ -1,7 +1,7 @@
 <?php
-if (isset($_COOKIE["Username"])){
-  // set the expiration date to one hour ago
-  setcookie("Username", $_COOKIE["Username"], time()-3600);
+include 'config.php';
+if (isset($_SESSION['user'])){
+	unset($_SESSION['user']);
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -9,6 +9,7 @@ if (isset($_COOKIE["Username"])){
 <head>
 <link rel="SHORTCUT ICON" href="/BadTwitterClone/favicon.ico">
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>BadTwitterClone - Login</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 <center>

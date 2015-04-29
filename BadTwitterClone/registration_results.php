@@ -3,6 +3,7 @@
 <head>
 <link rel="SHORTCUT ICON" href="/BadTwitterClone/favicon.ico">
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>BadTwitterClone - Registration</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 <center>

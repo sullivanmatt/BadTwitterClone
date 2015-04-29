@@ -3,6 +3,7 @@
 <head>
 <link rel="SHORTCUT ICON" href="/BadTwitterClone/favicon.ico">
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>BadTwitterClone - All Tweets</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 <center>
@@ -31,6 +32,12 @@ if (strlen($_GET["username"]) > 0){
   $dbname = 'badtwitterclone';
   mysql_select_db($dbname);
 
+  $result = mysql_query("SELECT count(*) FROM Users WHERE Username='" . $_GET["username"] . "'");
+  $count = mysql_fetch_row($result)[0];
+  if($count == 0) {
+    die("No account exists by that name.");
+  }
+
   // get the last 10 tweets of current user
   $result = mysql_query("SELECT * FROM Tweets WHERE Username='" . $_GET["username"] . "' ORDER BY ID DESC");
 
@@ -47,7 +54,7 @@ if (strlen($_GET["username"]) > 0){
      echo '</tr>';
   }
 
-  echo '</table>';
+  echo '</table><br />Be sure to follow <strong><em>' . $_GET["username"] . '</em></strong> on BadTwitterClone today to keep up with the latest and greatest news and comments.';
 
   //close connection to the database
   include 'closedb.php';

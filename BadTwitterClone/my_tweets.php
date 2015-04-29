@@ -3,6 +3,7 @@
 <head>
 <link rel="SHORTCUT ICON" href="/BadTwitterClone/favicon.ico">
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>BadTwitterClone - All Tweets</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 <center>
@@ -15,9 +16,9 @@
 
 
 <?php
-if (isset($_COOKIE["Username"])){
+if (isset($_SESSION['user'])){
   echo '<center>';
-  echo '<b>Showing the last ten tweets (from ' . $_COOKIE["Username"] . ')</b>';
+  echo '<b>Showing the last ten tweets (from ' . $_SESSION['user'] . ')</b>';
   echo '<br />';
   echo '<br />';
 
@@ -32,7 +33,7 @@ if (isset($_COOKIE["Username"])){
   mysql_select_db($dbname);
 
   // get the last 10 tweets of current user
-  $result = mysql_query("SELECT * FROM Tweets WHERE Username='" . $_COOKIE["Username"] . "' ORDER BY ID DESC");
+  $result = mysql_query("SELECT * FROM Tweets WHERE Username='" . $_SESSION['user'] . "' ORDER BY ID DESC");
 
   echo '<table border="1">';
   echo '<tr>';
